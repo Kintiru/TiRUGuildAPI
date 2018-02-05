@@ -1,11 +1,8 @@
-<?php declare(strict_types=1);
+<?php 
+declare(strict_types=1);
 namespace TiRUGuildAPI;
 
 use pocketmine\plugin\PluginBase;
-use pocketmine\command\Command;
-use pocketmine\command\CommandMap;
-use pocketmine\command\CommandSender;
-use pocketmine\Player;
 
 class TiRUGuildAPI extends PluginBase {
     private $hasguild_config = null;
@@ -16,7 +13,7 @@ class TiRUGuildAPI extends PluginBase {
     public static const MASTER = "Master";
     public static const MEMBER = "Member";
 
-    public static const GUILD_DOESNT_EXISTS = "GuildDoesntExists"
+    public static const GUILD_DOESNT_EXISTS = "GuildDoesntExists";
 
     public function onLoad() {
         $this->path = $this->getDataFolder() . "TiRUGuild/";
@@ -45,7 +42,7 @@ class TiRUGuildAPI extends PluginBase {
     }
 
     public function getRank(string $player, string $guildname) : string {
-        if(!$this->guild_exists($guildname)) {
+        if(!$this->guildExists($guildname)) {
             return self::GUILD_DOESNT_EXISTS;
         }
         $config = $this->getGuildConfig($guildname);
@@ -53,53 +50,66 @@ class TiRUGuildAPI extends PluginBase {
     }
 
     public function addGuildMember(string $guildname, string $player) : bool {
-        if(!$this->guild_exists($guildname)) {
+        if(!$this->guildExists($guildname)) {
             return false;
         }
         $members = $this->getGuildConfig($guildname);
         $members += [$player => self::MEMBER];
-        return ($this->saveGuildConfig($guildname)) ? true : false;
+        return ($this->saveGuildConfig($guildname, $members)) ? true : false;
     }
 
     public function deleteGuildMember(string $guildname, string $player) : bool {
-        if(!$this->guild_exists($guildname)) {
+        if(!$this->guildExists($guildname)) {
             return false;
         }
     }
-    public function guild_exists(string $guildName) : bool {
+    public function guildExists(string $guildName) : bool {
         return file_exists($this->getPath() . strtolower($guildName) . ".json");
     }
 
     public function getGuildConfig (string $guildname) : array {
-        return $this->guild_exists($guildname) ? json_decode(file_get_contents($this->getPath() . strtolower($guildname) . ".json")) : [];
+        return ($this->guildExists($guildname)) ? json_decode(file_get_contents($this->getPath() . strtolower($guildname) . ".json")) : [];
     }
 
-    public function saveGuildConfig(string $guildname , $config) : bool {
-        if(!$this->guild_exists($guildname)) {
+    public function saveGuildConfig(string $guildname , array $config) : bool {
+        if(!$this->guildExists($guildname)) {
             return false;
         }
         file_put_contents($this->getPath() . strtolower($guildname) . ".json", json_encode($config));
         return true;
     }
     public function addGuildMoney(string $guildname, string $money) :bool {
-        if(!$this->guild_exists($guildname)) {
+        if(!$this->guildExists($guildname)) {
             return false;
         }
 
     }
 
     public function takeGuildMoney(string $guildname, string $money) {
-        if(!$this->guild_exists($guildname)) {
+        if(!$this->guildExists($guildname)) {
             return false;
         }
         $config = $this->getGuildConfig($guildname);
     }
 
     public function setGuildMaster(string $guildname , string $player) {
-        if(!$this->guild_exists($guildname)) {
+        if(!$this->guildExists($guildname)) {
             return false;
         }
         $config = $this->getGuildConfig($guildname);
     }
+    
+    public function addRank() {
+        
+    }
+    
+    public function deleteRank() {
+        
+    }
+    
+    public function getRankList() {
+        
+    }
+
 }
 ?>
