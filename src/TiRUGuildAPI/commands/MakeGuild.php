@@ -4,7 +4,7 @@ namespace TiRUGuildAPI\commands;
 use pocketmine\command\PluginCommand;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use TiRUGuildAPI;
+use TiRUGuildAPI\TiRUGuildAPI;
 
 class MakeGuild extends Command
 {
@@ -29,7 +29,7 @@ class MakeGuild extends Command
             return true;
         }
         $content = array(
-            $sender->getName() => "Master"
+            TiRUGuildAPI::MASTER => $sender->getName()
         );
         file_put_contents($main->getPath() . strtolower($guildname) . ".json", json_encode($content));
         $sender->sendMessage($guildname . " 길드가 성공적으로 생성되었어요!");

@@ -1,5 +1,5 @@
 name: TiRUGuildAPI
-main: TiRUGuildAPI\src\TiRUGuildAPI
+main: TiRUGuildAPI\TiRUGuildAPI
 version: 0.0.1
 api: [3.0.0-ALPHA10, 3.0.0-ALPHA11]
 load: POSTWORLD
