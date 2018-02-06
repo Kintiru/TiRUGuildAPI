@@ -157,6 +157,7 @@ class TiRUGuildAPI extends PluginBase
             return false;
         }
         $config = $this->getGuildConfig($guildname);
+        $config += array($config[self::MASTER] => self::MEMBER);
         $config[self::MASTER] = strtolower($player);
         $this->saveGuildConfig($guildname, $config);
         return true;
