@@ -2,7 +2,6 @@ name: TiRUGuildAPI
 main: TiRUGuildAPI\TiRUGuildAPI
 version: 0.0.1
 api: [3.0.0-ALPHA10, 3.0.0-ALPHA11]
-load: POSTWORLD
 author: Kintiru
 description: Guild Plugin by Kintiru
 website: kintiru.tk

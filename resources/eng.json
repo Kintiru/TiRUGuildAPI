@@ -1,0 +1,61 @@
+{
+  "command": {
+    "default": {
+      "usage": "/guild",
+      "description": "Shows commands ",
+      "permission": [
+        "player"
+      ]
+    },
+    "invite": {
+      "usage": "/guild invite <player>",
+      "description": "Invites <player> to your guild",
+      "permission": [
+        "master"
+      ]
+    },
+    "banish": {
+      "usage": "/guild banish <player>",
+      "description": "Banishes <player> from your guild",
+      "permission": [
+        "master"
+      ]
+    },
+    "deleteguild": {
+      "usage": "/guild delete",
+      "description": "Deletes your guild",
+      "permission": [
+        "master",
+        "op"
+      ]
+    },
+    "guildlist": {
+      "usage": "/guild list",
+      "description": "Shows list of guilds in server",
+      "permission": [
+        "player"
+      ]
+    },
+    "makeguild": {
+      "usage": "/guild create <name>",
+      "description": "Creates a guild with that <name>.",
+      "permission": [
+        "player"
+      ]
+    },
+    "setguildmaster": {
+      "usage": "/guild master <player>",
+      "description": "Makes <player> as a master of your guild",
+      "permission": [
+        "master"
+      ]
+    },
+    "guildinfo": {
+      "usage": "/guild info",
+      "description": "Shows information of your guild",
+      "permission": [
+        "player"
+      ]
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "command" : {
+    "default": {
+      "usage": "",
+      "description": "",
+      "permission": [
+        "player"
+      ]
+    },
+    "invite": {
+      "usage": "",
+      "description": "",
+      "permission": [
+        "master"
+      ]
+    },
+    "banish": {
+      "usage": "",
+      "description": "",
+      "permission": [
+        "master"
+      ]
+    },
+    "deleteguild": {
+      "usage": "",
+      "description": "",
+      "permission": [
+        "master",
+        "op"
+      ]
+    },
+    "guildlist": {
+      "usage": "",
+      "description": "",
+      "permission": [
+        "player"
+      ]
+    },
+    "makeguild": {
+      "usage": "",
+      "description": "",
+      "permission": [
+        "player"
+      ]
+    },
+    "setguildmaster": {
+      "usage": "",
+      "description": "",
+      "permission": [
+        "master"
+      ]
+    },
+    "guildinfo": {
+      "usage": "",
+      "description": "",
+      "permission": [
+        "player"
+      ]
+    }
+  }
+}

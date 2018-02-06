@@ -1,0 +1,61 @@
+{
+  "command": {
+    "default": {
+      "usage": "/길드",
+      "description": "길드를 관리하고 사용할 수 있는 명령어입니다.",
+      "permission": [
+        "player"
+      ]
+    },
+    "invite": {
+      "usage": "/길드 생성 <길드이름>",
+      "description": "해당 플레이어를 길드에 초대합니다.",
+      "permission": [
+        "master"
+      ]
+    },
+    "banish": {
+      "usage": "/길드 추방 <유저>",
+      "description": "해당 유저를 길드에서 추방시킵니다.",
+      "permission": [
+        "master"
+      ]
+    },
+    "deleteguild": {
+      "usage": "/길드 삭제",
+      "description": "해당 길드를 삭제합니다.",
+      "permission": [
+        "master",
+        "op"
+      ]
+    },
+    "guildlist": {
+      "usage": "/길드 목록",
+      "description": "길드 목록을 보여줍니다.",
+      "permission": [
+        "player"
+      ]
+    },
+    "makeguild": {
+      "usage": "/길드 생성 <길드이름>",
+      "description": "길드를 만듭니다.",
+      "permission": [
+        "player"
+      ]
+    },
+    "setguildmaster": {
+      "usage": "/길드 마스터 <플레이어>",
+      "description": "길드마스터 자리를 해당 플레이어에게 양도합니다.",
+      "permission": [
+        "master"
+      ]
+    },
+    "guildinfo": {
+      "usage": "/길드 정보",
+      "description": "소속된 길드의 정보를 보여줍니다.",
+      "permission": [
+        "player"
+      ]
+    }
+  }
+}
