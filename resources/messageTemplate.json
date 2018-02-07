@@ -1,61 +1,158 @@
 {
   "command" : {
     "default": {
+      "number" : 0,
       "usage": "",
       "description": "",
       "permission": [
         "player"
-      ]
+      ],
+      "success" : {},
+      "fail" : {}
     },
     "invite": {
+      "number" : 1,
       "usage": "",
       "description": "",
       "permission": [
         "master"
-      ]
+      ],
+      "success" : {
+        "sender" : ""
+      },
+      "fail" : {}
     },
     "banish": {
+      "number" : 2,
       "usage": "",
       "description": "",
       "permission": [
         "master"
-      ]
+      ],
+      "success" : {},
+      "fail" : {}
     },
-    "deleteguild": {
+    "delete": {
+      "number" : 3,
       "usage": "",
       "description": "",
       "permission": [
         "master",
         "op"
-      ]
+      ],
+      "success" : {},
+      "fail" : {}
     },
-    "guildlist": {
+    "list": {
+      "number" : 4,
       "usage": "",
       "description": "",
       "permission": [
         "player"
-      ]
+      ],
+      "success" : {},
+      "fail" : {}
     },
-    "makeguild": {
+    "member" : {
+      "number" : 5,
       "usage": "",
       "description": "",
       "permission": [
         "player"
-      ]
+      ],
+      "success" : {},
+      "fail" : {}
     },
-    "setguildmaster": {
+    "make": {
+      "number" : 6,
+      "usage": "",
+      "description": "",
+      "permission": [
+        "player"
+      ],
+      "success" : {},
+      "fail" : {}
+    },
+    "master": {
+      "number" : 7,
       "usage": "",
       "description": "",
       "permission": [
         "master"
-      ]
+      ],
+      "success" : {},
+      "fail" : {}
     },
-    "guildinfo": {
+    "givemoney" : {
+      "number" : 8,
+      "usage": "",
+      "description": "",
+      "permission": [
+        "op"
+      ],
+      "success" : {},
+      "fail" : {}
+    },
+    "takemoney" : {
+      "number" : 9,
+      "usage": "",
+      "description": "",
+      "permission": [
+        "op"
+      ],
+      "success" : {},
+      "fail" : {}
+    },
+    "deposit" : {
+      "number" : 10,
       "usage": "",
       "description": "",
       "permission": [
         "player"
-      ]
+      ],
+      "success" : {},
+      "fail" : {}
+    },
+    "withdraw" : {
+      "number" : 11,
+      "usage": "",
+      "description": "",
+      "permission": [
+        "master"
+      ],
+      "success" : {},
+      "fail" : {}
+    },
+    "remittance" : {
+      "number" : 12,
+      "usage": "",
+      "description": "",
+      "permission": [
+        "master"
+      ],
+      "success" : {},
+      "fail" : {}
+    },
+    "info": {
+      "number" : 13,
+      "usage": "",
+      "description": "",
+      "permission": [
+        "player"
+      ],
+      "success" : {},
+      "fail" : {}
+    },
+    "leave" : {
+      "number" : 14,
+      "usage" : "",
+      "description" : "",
+      "permission" : [
+        "player"
+      ],
+      "success" : {},
+      "fail" : {}
     }
+
   }
 }

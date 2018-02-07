@@ -4,15 +4,13 @@ namespace TiRUGuildAPI\utils;
 use TiRUGuildAPI\TiRUGuildAPI;
 
 class lang {
-    const ENGLISH = 0;
-    const KOREAN = 1;
 
     public static function translate(string $message, string $lang = "eng"): mixed
     {
         $keys = explode(".", $message);
-        $messages = file_get_contents(TiRUGuildAPI::getInstance()->getResource($lang . ".json"));
+        $messages = file_get_contents();
         if(!isset($messages)){
-            return TiRUGuildAPI::CONTENTS_DOESNT_EXISTS;
+            return false;
         }
         $returnMessage = $messages;
         foreach($keys as $value) {

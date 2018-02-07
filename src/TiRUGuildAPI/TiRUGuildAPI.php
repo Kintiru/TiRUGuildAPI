@@ -7,9 +7,11 @@ use TiRUGuildAPI\commands\CommandListener;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\command\PluginCommand;
+use pocketmine\event\Listener;
+use pocketmine\event\player\PlayerCreationEvent;
 use TiRUGuildAPI\utils\lang;
 
-class TiRUGuildAPI extends PluginBase
+class TiRUGuildAPI extends PluginBase implements Listener
 {
     public static $lang;
 
@@ -19,11 +21,11 @@ class TiRUGuildAPI extends PluginBase
     private $command;
 
 
-    const MASTER = "Master";
-    const MEMBER = "Member";
+    const MASTER = "master";
+    const MEMBER = "member";
 
     const GUILD_DOESNT_EXISTS = "GuildDoesntExists";
-    const CONTENTS_DOESNT_EXISTS = "ContentsDoesntExists";
+    const CONTENTS_GUILD_DOESNT_EXISTS = "ContentsDoesntExists";
 
     public function onLoad(): void {
         self::$lang = $this->getServer()->getLanguage()->getLang();
@@ -40,13 +42,10 @@ class TiRUGuildAPI extends PluginBase
         fclose($tmp);
         unset($tmp);
 
+        $this->command = new CommandListener($this, self::getInstance(), 'guild');
+
         $this->hasGuildConfig = json_decode(file_get_contents($this->getPath() . "hasguildlist.json"));
         $this->guildMoneyList = json_decode(file_get_contents($this->getPath() . "guildmoneylist.json"));
-
-        $this->command = new PluginCommand("guild", $this);
-        $this->command->setExecutor(new CommandListener($this));
-        $this->command->setDescription(lang::translate("command.default.description",self::$lang));
-        $this->command->setUsage(lang::translate("command.default.usage",self::$lang));
 
         $this->getLogger()->notice("TiRUGuildAPI is enabled.");
     }
@@ -170,6 +169,7 @@ class TiRUGuildAPI extends PluginBase
         $guildname = strtolower($guildname);
         $guild = fopen($this->getPath() . $guildname . "json","w+");
         fwrite($guild,json_encode(array(self::MASTER => strtolower($master))));
+        $this->hasGuildConfig[$master] = $guildname;
         $this->guildMoneyList += array($guildname => 0);
         return true;
     }

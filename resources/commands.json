@@ -1,25 +1,11 @@
 {
-  "DEFAULT" : 0,
-  "INVITE_MEMBER" : 1,
-  "BANISH_MEMBER" : 2,
-  "DELETE_GUILD" : 3,
-  "GUILD_LIST" : 4,
-  "GUILD_MEMBER_LIST" : 5,
-  "MAKE_GUILD" : 6,
-  "SET_GUILD_MASTER" : 7,
-  "ADD_GUILD_MONEY" : 8,
-  "TAKE_GUILD_MONEY" : 9,
-  "GUILD_DEPOSIT" : 10,
-  "GUILD_WITHDRAW" : 11,
-  "GUILD_REMITTANCE" : 12,
-  "GUILD_INFO" : 13,
   "kor" : {
     "" : 0,
     "초대" : 1,
     "추방" : 2,
     "삭제" : 3,
     "목록" : 4,
-    "길드원" : 5,
+    "멤버" : 5,
     "생성" : 6,
     "마스터" : 7,
     "돈주기" : 8,
@@ -27,7 +13,8 @@
     "입금" : 10,
     "출금" : 11,
     "송금" : 12,
-    "정보" : 13
+    "정보" : 13,
+    "탈퇴" : 14
   },
   "eng" : {
     "" : 0,
@@ -43,6 +30,7 @@
     "deposit" : 10,
     "withdraw" : 11,
     "remittance" : 12,
-    "info" : 13
+    "info" : 13,
+    "leave" : 14
   }
 }

@@ -4,34 +4,38 @@ namespace TiRUGuildAPI\commands;
 use pocketmine\command\CommandExecutor;
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
+use pocketmine\command\PluginCommand;
 use pocketmine\plugin\Plugin;
 
 use TiRUGuildAPI\utils\lang;
 use TiRUGuildAPI\TiRUGuildAPI;
 
-class CommandListener implements CommandExecutor {
+class CommandListener extends PluginCommand implements CommandExecutor {
 
     private $lang;
+    protected $main;
     protected $owner;
 
     const ERROR = -1;
 
     const DEFAULT = 0;
-    const INVITE_MEMBER = 1;
-    const BANISH_MEMBER = 2;
-    const DELETE_GUILD = 3;
-    const GUILD_LIST = 4;
-    const GUILD_MEMBER_LIST = 5;
-    const MAKE_GUILD = 6;
-    const SET_GUILD_MASTER = 7;
-    const ADD_GUILD_MONEY = 8;
-    const TAKE_GUILD_MONEY = 9;
-    const GUILD_DEPOSIT = 10;
-    const GUILD_WITHDRAW = 11;
-    const GUILD_REMITTANCE = 12;
-    const GUILD_INFO = 13;
+    const INVITE = 1;
+    const BANISH = 2;
+    const DELETE = 3;
+    const LIST = 4;
+    const MEMBER_LIST = 5;
+    const MAKE = 6;
+    const MASTER = 7;
+    const GIVEMONEY = 8;
+    const TAKEMONEY = 9;
+    const DEPOSIT = 10;
+    const WITHDRAW = 11;
+    const REMITTANCE = 12;
+    const INFO = 13;
+    const LEAVE = 14;
     
-    public function __construct(Plugin $owner) {
+    public function __construct(Plugin $owner, TiRUGuildAPI $main, string $name) {
+        $this->main = $main;
         $this->owner = $owner;
         $this->lang = TiRUGuildAPI::$lang;
     }
@@ -39,27 +43,29 @@ class CommandListener implements CommandExecutor {
         $commandname = (string) array_shift($args);
 
         switch ($this->detectCommand($commandname, $this->lang)) {
-            case self::INVITE_MEMBER :
+            case self::ERROR :
+                break;
+            case self::INVITE :
                 $player = (string) array_shift($args);
-                $guildname = TiRUGuildAPI::getInstance()->getHasGuildConfig()[strtolower($player)]; //todo : 내용추가
-                TiRUGuildAPI::getInstance()->addGuildMember($guildname,$player);
+                $guildname = $this->main->getHasGuildConfig()[strtolower($player)];
+                $this->main->addGuildMember($guildname,$player);
                 $sender->sendMessage(lang::translate("",$this->lang));
                 break;
-            case self::BANISH_MEMBER :
+            case self::BANISH :
                 break;
-            case self::DELETE_GUILD :
+            case self::DELETE :
                 break;
-            case self::GUILD_LIST :
+            case self::LIST :
                 break;
-            case self::GUILD_MEMBER_LIST :
+            case self::MEMBER_LIST :
                 break;
-            case self::MAKE_GUILD :
+            case self::MAKE :
                 break;
-            case self::SET_GUILD_MASTER :
+            case self::MASTER :
                 break;
-            case self::ADD_GUILD_MONEY :
+            case self::GIVEMONEY :
                 break;
-            case self::TAKE_GUILD_MONEY :
+            case self::TAKEMONEY :
                 break;
             default :
                 break;
@@ -76,4 +82,3 @@ class CommandListener implements CommandExecutor {
         return $guild[$lang][$commandname];
     }
 }
-?>
